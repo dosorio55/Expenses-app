@@ -18,8 +18,8 @@ const Expenses = ({expenses}) => {
 
             <Card className='expenses'>
             <ExpenseFilter selectedYear={selectedYear} handleYear={handleYear} />
-                { expenses.map((expense)=>
-                    <ExpenseItem key={expense.title} expense={expense}/>
+                { expenses.map((expense, index)=>
+                    <ExpenseItem key={index} expense={expense}/>
                 )}
             </Card>
         </div>

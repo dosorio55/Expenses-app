@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './ExpenseForm.scss'
 
-const ExpenseForm = () => {
+const ExpenseForm = ({addExpenseHandler}) => {
+
 
     const [expenseForm, setExpenseForm] = useState({ title: '', amount: '', date: '' })
 
@@ -13,8 +14,8 @@ const ExpenseForm = () => {
     
     const submitHandler = (event) => {
         event.preventDefault();
-        
-        console.log(expenseForm)
+        addExpenseHandler(expenseForm)
+        // console.log(expenseForm)
     }
 
     return (

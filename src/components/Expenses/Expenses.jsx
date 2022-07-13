@@ -4,10 +4,17 @@ import ExpenseItem from './ExpenseItem'
 import Card from '../UI/Card'
 import ExpenseFilter from './ExpenseFilter'
 
-const Expenses = ({expenses}) => {
+const Expenses = ({ expenses }) => {
 
-    const [selectedYear, setSelectedYear] = useState(2022);
+    const [selectedYear, setSelectedYear] = useState("2022");
 
+    const expensebyYear = expenses.filter(expense => {
+
+        return expense.date.getFullYear().toString() === selectedYear;
+    })
+
+    const expensesContent = expensebyYear.length === 0 ? <p>No expenses found. Add a new expense</p>
+        : expensebyYear.map((expense, index) => <ExpenseItem key={index} expense={expense} />)
 
     const handleYear = (year) => {
         setSelectedYear(year)
@@ -17,10 +24,8 @@ const Expenses = ({expenses}) => {
         <div className='expensesContainer'>
 
             <Card className='expenses'>
-            <ExpenseFilter selectedYear={selectedYear} handleYear={handleYear} />
-                { expenses.map((expense, index)=>
-                    <ExpenseItem key={index} expense={expense}/>
-                )}
+                <ExpenseFilter selectedYear={selectedYear} handleYear={handleYear} />
+                {expensesContent}
             </Card>
         </div>
     )

@@ -11,8 +11,11 @@ const INITIAL_STATE = [
     title: 'Insurance', amount: 260, date: new Date(2022, 7, 28)
   },
   {
-    title: 'House', amount: 250, date: new Date(2022, 6, 28)
+    title: 'House', amount: 250, date: new Date(2021, 6, 28)
   },
+  {
+    title: 'Videogame', amount: 100, date: new Date(2020, 7, 10)
+  }
 ];
 
 

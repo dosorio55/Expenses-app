@@ -5,7 +5,7 @@ import NewExpense from './components/Expenses/NewExpense/NewExpense';
 
 const INITIAL_STATE = [
   {
-    title: 'Car Insurance', amount: 110, date: new Date(2022, 7, 28)
+    title: 'Car Insurance', amount: 110, date: new Date(2022, 6, 28)
   },
   {
     title: 'Insurance', amount: 260, date: new Date(2022, 7, 28)
@@ -25,7 +25,6 @@ const App = () => {
 
   const addExpenseHandler = (newExpense) => {
     setExpenses((prevState) => {
-      console.log(expenses)
       return [newExpense, ...prevState]
     })
   }
@@ -33,7 +32,7 @@ const App = () => {
   return (
 
     <div>
-        <NewExpense addExpenseHandler={addExpenseHandler} />
+      <NewExpense addExpenseHandler={addExpenseHandler} />
       <Expenses expenses={expenses} />
     </div>
   );

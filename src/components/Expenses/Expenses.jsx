@@ -3,13 +3,13 @@ import './Expenses.scss'
 import ExpenseItem from './ExpenseItem'
 import Card from '../UI/Card'
 import ExpenseFilter from './ExpenseFilter'
+import ExpensesChart from './NewExpense/ExpensesChart'
 
 const Expenses = ({ expenses }) => {
 
     const [selectedYear, setSelectedYear] = useState("2022");
 
     const expensebyYear = expenses.filter(expense => {
-
         return expense.date.getFullYear().toString() === selectedYear;
     })
 
@@ -20,13 +20,17 @@ const Expenses = ({ expenses }) => {
         setSelectedYear(year)
     }
 
+    // debugger
+
     return (
         <div className='expensesContainer'>
 
             <Card className='expenses'>
                 <ExpenseFilter selectedYear={selectedYear} handleYear={handleYear} />
+                <ExpensesChart expenses={expensebyYear}/>
                 {expensesContent}
             </Card>
+
         </div>
     )
 }
